@@ -270,10 +270,124 @@ body {
 }
 
 /* Dashboard */
-.dashboard-container {
+.dashboard-layout {
+  min-height: 100vh;
+  background-color: var(--bg-color);
+  padding: 2rem;
+}
+
+.dashboard-header {
+  max-width: 600px;
+  margin: 0 auto 2rem;
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.todo-form {
+  margin-bottom: 2rem;
+}
+
+.todo-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.todo-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  background: var(--input-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 0.75rem;
+  transition: all 0.3s ease;
+}
+
+.todo-content {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  cursor: pointer;
+  flex: 1;
+}
+
+.todo-text {
+  font-size: 1rem;
+  color: var(--text-color);
+  transition: all 0.2s ease;
+}
+
+.todo-item.completed {
+  background: #f9fafb;
+  opacity: 0.7;
+}
+
+.todo-item.completed .todo-text {
+  text-decoration: line-through;
+  color: var(--text-muted);
+}
+
+.todo-check {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 100vh;
-  background-color: var(--bg-color); /* blank white page */
+  padding: 0;
+}
+
+.todo-check.checked {
+  color: var(--primary-color);
+}
+
+.todo-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.btn-icon {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #9ca3af;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-icon:hover {
+  background-color: #e5e7eb;
+  color: var(--text-color);
+}
+
+.btn-icon.delete:hover {
+  color: #ef4444;
+  background-color: #fef2f2;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 3rem 1rem;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+.animate-pop-out {
+  animation: popOut 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes popOut {
+  0% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.05); opacity: 0.8; }
+  100% { transform: scale(0.9); opacity: 0; }
 }
